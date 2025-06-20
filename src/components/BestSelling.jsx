@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import {
-  cart,
-  leftArrow,
-  product1,
-  product2,
-  product3,
-  rightArrow,
-} from "../assets";
+import { leftArrow, product1, product2, product3, rightArrow } from "../assets";
+import Cards from "./Cards";
 
-const cards = [
+const cardsData = [
   {
     id: 1,
     title: "ALYA SKIN CLEANSER.",
@@ -35,17 +29,17 @@ const BestSelling = () => {
   const getVisibleCards = () => {
     const visible = [];
     for (let i = 0; i < 3; i++) {
-      visible.push(cards[(current + i) % cards.length]);
+      visible.push(cardsData[(current + i) % cardsData.length]);
     }
     return visible;
   };
 
   const handleRight = () => {
-    setCurrent((prev) => (prev - 1 + cards.length) % cards.length);
+    setCurrent((prev) => (prev - 1 + cardsData.length) % cardsData.length);
   };
 
   const handleLeft = () => {
-    setCurrent((prev) => (prev + 1) % cards.length);
+    setCurrent((prev) => (prev + 1) % cardsData.length);
   };
 
   return (
@@ -76,33 +70,7 @@ const BestSelling = () => {
         </div>
       </div>
       {/* Cards */}
-      <div className="flex justify-center gap-8 mt-12">
-        {getVisibleCards().map((card) => (
-          <div
-            key={card.id}
-            className="bg-white rounded-xl shadow-md w-[560px] h-[770px] p-6 flex flex-col items-center flex-wrap relative"
-            style={{
-              backgroundImage: `url(${card.img})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            <div className="w-[90%] p-3 bg-[#FEFFF4] m-auto absolute h-[100px] bottom-[4%] rounded-[10px] flex justify-between items-center">
-              <div className="flex flex-col justify-between h-full ml-3">
-                <span className="text-[20px] tracking-[-5%]">{card.title}</span>
-                <span className="text-[#2D3B3680] text-[14px] tracking-[-5%]">
-                  FROM ${card.price}
-                </span>
-              </div>
-              {/*Cart*/}
-              <div className="bg-[#2D3B361A] size-[80px] rounded-[10px] flex justify-center items-center">
-                <img src={cart} alt="" />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Cards cards={getVisibleCards()} />
     </div>
   );
 };

@@ -12,6 +12,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html {
+  background: #fefff4 !important;
+}
 
 a {
   font-weight: 500;
@@ -50,7 +53,7 @@ button {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #fefff4;
   }
   a:hover {
     color: #747bff;

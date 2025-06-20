@@ -1,5 +1,7 @@
 import About from "./components/About";
+import AllProducts from "./components/AllProducts";
 import BestSelling from "./components/BestSelling";
+import BuyNowBanner from "./components/BuyNowBanner";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
 
@@ -10,6 +12,10 @@ function App() {
       <LandingPage />
       <About />
       <BestSelling />
+      <div className="lg:block hidden">
+        <BuyNowBanner />
+      </div>
+      <AllProducts />
     </div>
   );
 }
