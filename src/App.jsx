@@ -1,4 +1,5 @@
 import About from "./components/About";
+import BestSelling from "./components/BestSelling";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
 
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <LandingPage />
       <About />
+      <BestSelling />
     </div>
   );
 }

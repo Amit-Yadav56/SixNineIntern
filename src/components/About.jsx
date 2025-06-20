@@ -3,7 +3,7 @@ import { img2, lock } from "../assets";
 
 const About = () => {
   return (
-    <div className="flex flex-col items-center justify-center mt-16">
+    <div className="flex flex-col items-center justify-center mt-[5%]">
       <h1 className="font-normal text-[53px] leading-[78px] tracking-[-0.035em] text-[#bfc4bb]">
         Experience the ultimate in skincare with our expertly formulated
         products, crafted to nourish, protect, and rejuvenate your skin.
@@ -13,7 +13,7 @@ const About = () => {
         in skincare with our expertly formulated products, crafted to nourish,
         protect, and rejuvenate your skin.
       </h1>
-      <div className="flex flex-col lg:flex-row mt-24 w-full justify-between">
+      <div className="flex flex-col lg:flex-row mt-[12%] w-full justify-between">
         <div className="w-[40%] flex flex-col gap-10 justify-between">
           <div className="flex justify-around border border-[#2D3B36] rounded-[100px] p-4 w-[260px]">
             <div className="w-[20px] h-[20px] bg-[#2D3B36] rounded-full" />
