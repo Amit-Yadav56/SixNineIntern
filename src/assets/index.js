@@ -16,6 +16,8 @@ import banner from "./banner.png";
 import headPhone from "./headphone.png";
 import plus from "./plus.png";
 import minus from "./minus.png";
+import skincare from "./skincare.png";
+
 export {
   bagLogo,
   heart,
@@ -34,4 +36,5 @@ export {
   headPhone,
   plus,
   minus,
+  skincare,
 };

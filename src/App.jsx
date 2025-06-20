@@ -2,6 +2,7 @@ import About from "./components/About";
 import AllProducts from "./components/AllProducts";
 import BestSelling from "./components/BestSelling";
 import BuyNowBanner from "./components/BuyNowBanner";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HelpSection from "./components/HelpSection";
 import LandingPage from "./components/LandingPage";
@@ -18,6 +19,7 @@ function App() {
       </div>
       <AllProducts />
       <HelpSection />
+      <Footer />
     </div>
   );
 }
