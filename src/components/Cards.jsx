@@ -3,7 +3,7 @@ import { cart } from "../assets";
 
 const Cards = ({ cards }) => {
   return (
-    <div className="flex justify-center gap-8 mt-12 transition-all duration-500 ease-in-out">
+    <div className="flex justify-between w-full gap-8 mt-12 transition-all duration-500 ease-in-out">
       {cards.map((card) => (
         <div
           key={card.id}

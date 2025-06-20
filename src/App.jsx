@@ -3,6 +3,7 @@ import AllProducts from "./components/AllProducts";
 import BestSelling from "./components/BestSelling";
 import BuyNowBanner from "./components/BuyNowBanner";
 import Header from "./components/Header";
+import HelpSection from "./components/HelpSection";
 import LandingPage from "./components/LandingPage";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <BuyNowBanner />
       </div>
       <AllProducts />
+      <HelpSection />
     </div>
   );
 }

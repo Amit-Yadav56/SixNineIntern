@@ -13,6 +13,9 @@ import product2 from "./product2.png";
 import product3 from "./product3.png";
 import cart from "./cart.png";
 import banner from "./banner.png";
+import headPhone from "./headphone.png";
+import plus from "./plus.png";
+import minus from "./minus.png";
 export {
   bagLogo,
   heart,
@@ -28,4 +31,7 @@ export {
   product3,
   cart,
   banner,
+  headPhone,
+  plus,
+  minus,
 };
