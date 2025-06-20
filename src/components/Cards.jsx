@@ -1,7 +1,7 @@
 import React from "react";
 import { cart } from "../assets";
 
-const Cards = ({ cards }) => {
+const Cards = ({ cards, onAddToCart }) => {
   return (
     <div className="flex justify-between w-full gap-8 mt-12 transition-all duration-500 ease-in-out">
       {cards.map((card) => (
@@ -23,7 +23,10 @@ const Cards = ({ cards }) => {
               </span>
             </div>
             {/*Cart*/}
-            <div className="bg-[#2D3B361A] size-[80px] rounded-[10px] flex justify-center items-center">
+            <div
+              className="bg-[#2D3B361A] size-[80px] rounded-[10px] flex justify-center items-center cursor-pointer"
+              onClick={onAddToCart}
+            >
               <img src={cart} alt="" />
             </div>
           </div>

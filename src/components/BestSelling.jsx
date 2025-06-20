@@ -23,7 +23,7 @@ const cardsData = [
   },
 ];
 
-const BestSelling = () => {
+const BestSelling = ({ onAddToCart }) => {
   const [current, setCurrent] = useState(0);
 
   const getVisibleCards = () => {
@@ -70,7 +70,7 @@ const BestSelling = () => {
         </div>
       </div>
       {/* Cards */}
-      <Cards cards={getVisibleCards()} />
+      <Cards cards={getVisibleCards()} onAddToCart={onAddToCart} />
     </div>
   );
 };

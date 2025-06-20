@@ -23,7 +23,7 @@ const cardsData = [
   },
 ];
 
-const AllProducts = () => {
+const AllProducts = ({ onAddToCart }) => {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
   const buttons = ["NEW ARRIVAL", "CLEANSING", "ACNE FIGHTER", "ANTI AGGING"];
@@ -50,8 +50,8 @@ const AllProducts = () => {
           </button>
         ))}
       </div>
-      {/* Cards component with the three products */}
-      <Cards cards={cardsData} current={0} />
+      {/* Pass onAddToCart to Cards */}
+      <Cards cards={cardsData} onAddToCart={onAddToCart} current={0} />
     </div>
   );
 };

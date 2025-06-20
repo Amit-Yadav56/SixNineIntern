@@ -1,6 +1,6 @@
 import React from "react";
 import { bagLogo, heart, profile } from "../assets";
-const Header = () => {
+const Header = ({ cartCount }) => {
   return (
     <div className="flex justify-between items-center">
       {/* Logo */}
@@ -19,7 +19,7 @@ const Header = () => {
         <div className="flex gap-2">
           <img src={bagLogo} alt="cart" />
           <span className="text-[#2D3B36] mr-1.5 text-[20px] leading-[100%]">
-            Cart (1)
+            Cart ({cartCount})
           </span>
         </div>
         <img src={heart} alt="likes" />
