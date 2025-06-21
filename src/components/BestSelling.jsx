@@ -1,6 +1,17 @@
-import React, { useState } from "react";
-import { leftArrow, product1, product2, product3, rightArrow } from "../assets";
+import React, { useState, useRef, useEffect } from "react";
+import {
+  cart,
+  leftArrow,
+  product1,
+  product2,
+  product3,
+  rightArrow,
+} from "../assets";
 import Cards from "./Cards";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const cardsData = [
   {
@@ -25,6 +36,48 @@ const cardsData = [
 
 const BestSelling = ({ onAddToCart }) => {
   const [current, setCurrent] = useState(0);
+  const [leftPressed, setLeftPressed] = useState(false);
+  const [rightPressed, setRightPressed] = useState(false);
+
+  // Refs for animation
+  const sectionRef = useRef(null);
+  const textRef = useRef(null);
+  const cardRefs = useRef([]); // <-- create cardRefs
+
+  // Animate text only once when section enters viewport
+  useEffect(() => {
+    gsap.fromTo(
+      textRef.current,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+  }, []);
+
+  // Animate cards every time current changes
+  useEffect(() => {
+    if (!cardRefs.current) return;
+    gsap.fromTo(
+      cardRefs.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+      }
+    );
+  }, [current]);
 
   const getVisibleCards = () => {
     const visible = [];
@@ -42,10 +95,19 @@ const BestSelling = ({ onAddToCart }) => {
     setCurrent((prev) => (prev + 1) % cardsData.length);
   };
 
+  // Animation handlers for tactile feedback
+  const handlePress = (setter) => {
+    setter(true);
+    setTimeout(() => setter(false), 150); // quick tap effect
+  };
+
+  // Render cards with refs for animation
+  const visibleCards = getVisibleCards();
+
   return (
-    <div className="my-[15%]">
-      <div className="flex justify-between items-center">
-        <div className="flex justify-around border border-[#2D3B36] rounded-[100px] p-4 w-[290px] h-[60px] cursor-pointer ">
+    <div className="my-[15%]" ref={sectionRef}>
+      <div className="flex justify-between items-center" ref={textRef}>
+        <div className="flex justify-around border border-[#2D3B36] rounded-[100px] p-4 w-[290px] h-[60px]">
           <div className="w-[20px] h-[20px] bg-[#2D3B36] rounded-full" />
           <span className="text-[20px] leading-[100%]">
             Best Selling Products
@@ -55,22 +117,52 @@ const BestSelling = ({ onAddToCart }) => {
           Skincare That Brings Out <br /> Your Natural Radiance
         </span>
         <div className="flex gap-10">
+          {/* Left Button */}
           <button
-            className="w-[80px] h-[80px] rounded-full border border-[#2D3B36] justify-items-end flex items-center justify-center"
+            className={`
+              w-[80px] h-[80px] rounded-full border border-[#2D3B36]
+              flex items-center justify-center
+              transition-transform duration-150
+              ${leftPressed ? "scale-90 bg-[#e6eae2]" : ""}
+              active:scale-90
+            `}
             onClick={handleLeft}
+            onMouseDown={() => handlePress(setLeftPressed)}
+            onMouseUp={() => setLeftPressed(false)}
+            onMouseLeave={() => setLeftPressed(false)}
+            onTouchStart={() => handlePress(setLeftPressed)}
+            onTouchEnd={() => setLeftPressed(false)}
+            aria-label="Previous"
           >
             <img src={leftArrow} alt="Left" />
           </button>
+          {/* Right Button */}
           <button
-            className="w-[80px] h-[80px] rounded-full border border-[#2D3B36] bg-[#2D3B36] flex items-center justify-center"
+            className={`
+              w-[80px] h-[80px] rounded-full border border-[#2D3B36] bg-[#2D3B36]
+              flex items-center justify-center
+              transition-transform duration-150
+              ${rightPressed ? "scale-90 bg-[#1a211d]" : ""}
+              active:scale-90
+            `}
             onClick={handleRight}
+            onMouseDown={() => handlePress(setRightPressed)}
+            onMouseUp={() => setRightPressed(false)}
+            onMouseLeave={() => setRightPressed(false)}
+            onTouchStart={() => handlePress(setRightPressed)}
+            onTouchEnd={() => setRightPressed(false)}
+            aria-label="Next"
           >
             <img src={rightArrow} alt="Right" />
           </button>
         </div>
       </div>
-      {/* Cards */}
-      <Cards cards={getVisibleCards()} onAddToCart={onAddToCart} />
+      {/* Pass cardRefs to Cards */}
+      <Cards
+        cards={visibleCards}
+        onAddToCart={onAddToCart}
+        cardRefs={cardRefs}
+      />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { headPhone, product3, plus, minus } from "../assets";
 
 const data = [
@@ -36,10 +36,28 @@ const data = [
 
 const HelpSection = () => {
   const [openId, setOpenId] = useState(null);
+  const answerRefs = useRef({});
 
   const toggleAnswer = (id) => {
     setOpenId(openId === id ? null : id);
   };
+
+  useEffect(() => {
+    data.forEach((item) => {
+      const ref = answerRefs.current[item.id];
+      if (ref) {
+        if (openId === item.id) {
+          // Expand
+          ref.style.maxHeight = ref.scrollHeight + "px";
+          ref.style.opacity = 1;
+        } else {
+          // Collapse
+          ref.style.maxHeight = "0px";
+          ref.style.opacity = 0;
+        }
+      }
+    });
+  }, [openId]);
 
   return (
     <div className="w-full flex justify-between items-center mb-[8%] relative">
@@ -95,9 +113,21 @@ const HelpSection = () => {
                   <img src={openId === item.id ? minus : plus} alt="" />
                 </button>
               </div>
-              {openId === item.id && (
+              <div
+                ref={(el) => (answerRefs.current[item.id] = el)}
+                style={{
+                  maxHeight:
+                    openId === item.id
+                      ? `${answerRefs.current[item.id]?.scrollHeight}px`
+                      : "0px",
+                  opacity: openId === item.id ? 1 : 0,
+                  overflow: "hidden",
+                  transition:
+                    "max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease-in-out",
+                }}
+              >
                 <p className="text-[16px] w-[90%] mt-2">{item.answer}</p>
-              )}
+              </div>
             </div>
           ))}
         </div>

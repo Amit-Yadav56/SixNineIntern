@@ -1,19 +1,88 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { img2, lock } from "../assets";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const aboutText = `Experience the ultimate in skincare with our expertly formulated products, crafted to nourish, protect, and rejuvenate your skin. Combining the finest natural ingredients with advanced science, our collection ensures every skin type can achieve a radiant, healthy glow. Embrace your beauty with confidence every day. Experience the ultimate in skincare with our expertly formulated products, crafted to nourish, protect, and rejuvenate your skin.`;
 
 const About = () => {
+  const paraRef = useRef(null);
+  const section2Ref = useRef(null);
+
+  useEffect(() => {
+    // Animate first paragraph (word by word)
+    const words = paraRef.current.querySelectorAll(".about-word");
+    gsap.set(words, { color: "#bfc4bb", opacity: 0.5 });
+
+    const anim = gsap.to(words, {
+      color: "#2D3B36",
+      opacity: 1,
+      stagger: {
+        each: 0.08,
+        from: "start",
+      },
+      duration: 0.8,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: paraRef.current,
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+
+    // Animate section 2 (fade in and move up)
+    gsap.fromTo(
+      section2Ref.current,
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section2Ref.current,
+          start: "top 85%",
+        },
+      }
+    );
+
+    // Cleanup
+    return () => {
+      if (anim.scrollTrigger) anim.scrollTrigger.kill();
+      anim.kill();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  // Split the paragraph into words and wrap each in a span
+  const renderAnimatedParagraph = () =>
+    aboutText.split(" ").map((word, idx) => (
+      <span
+        key={idx}
+        className="about-word"
+        style={{ display: "inline-block", whiteSpace: "pre" }}
+      >
+        {word + " "}
+      </span>
+    ));
+
   return (
     <div className="flex flex-col items-center justify-center mt-[5%]">
-      <h1 className="font-normal text-[53px] leading-[78px] tracking-[-0.035em] text-[#bfc4bb]">
-        Experience the ultimate in skincare with our expertly formulated
-        products, crafted to nourish, protect, and rejuvenate your skin.
-        Combining the finest natural ingredients with advanced science, our
-        collection ensures every skin type can achieve a radiant, healthy glow.
-        Embrace your beauty with confidence every day. Experience the ultimate
-        in skincare with our expertly formulated products, crafted to nourish,
-        protect, and rejuvenate your skin.
+      <h1
+        ref={paraRef}
+        className="font-normal text-[53px] leading-[78px] tracking-[-0.035em] text-[#2D3B364D]"
+        style={{ transition: "color 0.3s" }}
+      >
+        {renderAnimatedParagraph()}
       </h1>
-      <div className="flex flex-col lg:flex-row mt-[12%] w-full justify-between">
+      {/*section 2*/}
+      <div
+        ref={section2Ref}
+        className="flex flex-col lg:flex-row mt-[12%] w-full justify-between"
+      >
         <div className="w-[40%] flex flex-col gap-10 justify-between">
           <div className="flex justify-around border border-[#2D3B36] rounded-[100px] p-4 w-[260px]">
             <div className="w-[20px] h-[20px] bg-[#2D3B36] rounded-full" />
