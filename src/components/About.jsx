@@ -73,7 +73,7 @@ const About = () => {
     <div className="flex flex-col items-center justify-center mt-[5%]">
       <h1
         ref={paraRef}
-        className="font-normal text-[53px] leading-[78px] tracking-[-0.035em] text-[#2D3B364D]"
+        className="w-[90vw] font-normal text-[53px] leading-[78px] tracking-[-0.035em] text-[#2D3B364D]"
         style={{ transition: "color 0.3s" }}
       >
         {renderAnimatedParagraph()}
@@ -83,7 +83,7 @@ const About = () => {
         ref={section2Ref}
         className="flex flex-col lg:flex-row mt-[12%] w-full justify-between"
       >
-        <div className="w-[40%] flex flex-col gap-10 justify-between">
+        <div className="w-[90vw] lg:w-[40%] flex flex-col gap-10  justify-center lg:justify-between">
           <div className="flex justify-around border border-[#2D3B36] rounded-[100px] p-4 w-[260px]">
             <div className="w-[20px] h-[20px] bg-[#2D3B36] rounded-full" />
             <span className="text-[20px] leading-[100%]">Why Our Products</span>
@@ -132,7 +132,7 @@ const About = () => {
               </div>
             </div>
             {/* #3 */}
-            <div className="mt-9 flex gap-[8%]">
+            <div className="mt-9 flex gap-[8%] mb-9">
               <span className="text-[60px] bg-gradient-to-b from-[#293330] to-[#FEFFF4] bg-clip-text text-transparent">
                 03
               </span>

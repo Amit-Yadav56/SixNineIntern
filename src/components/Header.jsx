@@ -8,7 +8,7 @@ const Header = ({ cartCount }) => {
         SKINCARE
       </p>
       {/* Navigation Links */}
-      <div className="flex justify-evenly w-1/2">
+      <div className="justify-evenly w-1/2 hidden md:flex">
         <a href="">All Products</a>
         <a href="">Serum</a>
         <a href="">Sunscreem</a>
@@ -20,7 +20,7 @@ const Header = ({ cartCount }) => {
           <div className="size-[40px] bg-white rounded-full flex justify-center items-center">
             <img src={bagLogo} alt="cart" />
           </div>
-          <span className="text-[#2D3B36] mr-1.5 text-[20px] leading-[100%]">
+          <span className="text-[#2D3B36] hidden lg:block mr-1.5 text-[20px] leading-[100%]">
             Cart ({cartCount})
           </span>
         </div>

@@ -23,7 +23,7 @@ function App() {
   // Loading effect: count from 1 to 100
   useEffect(() => {
     if (loading && count < 100) {
-      const timer = setTimeout(() => setCount(count + 1), 20);
+      const timer = setTimeout(() => setCount(count + 1), 30);
       return () => clearTimeout(timer);
     }
     if (count === 100 && loading) {
@@ -50,7 +50,7 @@ function App() {
   }
 
   return (
-    <div className="absolute top-[50px] left-[5%] right-[5%]">
+    <div className="absolute top-[50px] md:left-[5%] md:right-[5%]">
       <Header cartCount={cartCount} />
       <LandingPage />
       <About />
