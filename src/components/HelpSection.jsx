@@ -60,10 +60,10 @@ const HelpSection = () => {
   }, [openId]);
 
   return (
-    <div className="w-[90%] m-auto sm:w-full flex justify-between items-center mb-[8%] relative">
-      <div className="w-1/2 relative hidden lg:block">
+    <div className="w-[90%] m-auto sm:w-full flex flex-col-reverse lg:flex-row justify-between items-center mb-[8%] relative">
+      <div className="w-full lg:w-1/2 relative md:hidden lg:block">
         <img src={product3} alt="" className="w-full" />
-        <div className="absolute bottom-[10%] w-[400px] left-1/4 bg-[#EFF5E1] h-[100px] rounded-[200px] flex gap-[5%] justify-around items-center">
+        <div className="absolute bottom-[10%] w-full lg:w-[400px] left-0 lg:left-1/4 bg-[#EFF5E1] h-[100px] rounded-[200px] flex gap-[5%] justify-around items-center">
           <div className="size-[88px] border border-[#2D3B36] rounded-full flex items-center justify-center border-dashed">
             <div className="bg-[#2D3B36] rounded-full size-[80px] flex items-center justify-center">
               <img className="w-[50px] h-[50px]" src={headPhone} alt="" />

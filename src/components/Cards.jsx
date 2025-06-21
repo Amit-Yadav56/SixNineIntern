@@ -53,7 +53,7 @@ const Cards = ({ cards, onAddToCart, cardRefs }) => {
         <div
           key={card.id}
           ref={(el) => cardRefs && (cardRefs.current[idx] = el)}
-          className="bg-white rounded-3xl shadow-md shrink-0 w-[80vw] md:w-[90vw] h-[770px] p-6 flex flex-col items-center flex-wrap relative transition-transform duration-500 ease-in-out"
+          className="bg-white rounded-3xl shadow-md shrink-0 w-[80vw] md:w-[90vw] lg:w-[560px] h-[770px] p-6 flex flex-col items-center flex-wrap relative transition-transform duration-500 ease-in-out"
           style={{
             backgroundImage: `url(${card.img})`,
             backgroundSize: "cover",

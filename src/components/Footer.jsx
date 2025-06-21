@@ -3,7 +3,7 @@ import { skincare } from "../assets";
 
 const Footer = () => {
   return (
-    <div className="relative left-0 lg:left-[-6%] w-[100vw] lg:w-[112%] bg-[#2D3B36] text-[#E7E8E0]">
+    <div className="relative left-0 md:left-[-6%] w-[100vw] lg:w-[112%] bg-[#2D3B36] text-[#E7E8E0]">
       <div className="flex flex-col lg:flex-row justify-between w-[90%] m-auto">
         <div className="flex flex-col justify-between w-[90%] m-auto pt-[8%]">
           <span className="text-[34px] sm:text-[50px] lg:text-[60px] leading-[100%] tracking-[-2%]">
