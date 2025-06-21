@@ -14,30 +14,32 @@ const Footer = () => {
             Get in Touch
             <br />
           </span>
-          contact.skincare.com
+          <span className="cursor-pointer hover:text-black">
+            contact.skincare.com
+          </span>
         </div>
       </div>
 
       <div className="flex justify-between w-[90%] m-auto py-8 mb-[5%]">
         <div className="flex w-[30%] justify-between">
-          <span className="text-[20px] leading-[100%] tracking-[-5%] ">
+          <span className="text-[20px] leading-[100%] tracking-[-5%] cursor-pointer hover:text-black">
             Facebook
           </span>
-          <span className="text-[20px] leading-[100%] tracking-[-5%] ">
+          <span className="text-[20px] leading-[100%] tracking-[-5%] cursor-pointer hover:text-black">
             Instagram
           </span>
-          <span className="text-[20px] leading-[100%] tracking-[-5%] ">
+          <span className="text-[20px] leading-[100%] tracking-[-5%] cursor-pointer hover:text-black">
             Youtube
           </span>
         </div>
         <div className="flex w-[30%] justify-between">
-          <span className="text-[20px] leading-[100%] tracking-[-5%] ">
+          <span className="text-[20px] leading-[100%] tracking-[-5%] cursor-pointer hover:text-black">
             Terms of Service
           </span>
-          <span className="text-[20px] leading-[100%] tracking-[-5%] ">
+          <span className="text-[20px] leading-[100%] tracking-[-5%] cursor-pointer hover:text-black">
             Privacy Policy
           </span>
-          <span className="text-[20px] leading-[100%] tracking-[-5%] ">
+          <span className="text-[20px] leading-[100%] tracking-[-5%] cursor-pointer hover:text-black">
             Cookies Policy
           </span>
         </div>
