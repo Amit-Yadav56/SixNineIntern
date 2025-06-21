@@ -16,14 +16,20 @@ const Header = ({ cartCount }) => {
       </div>
       {/*Tools*/}
       <div className="flex justify-between gap-3">
-        <div className="flex gap-2 cursor-pointer">
-          <img src={bagLogo} alt="cart" />
+        <div className="flex gap-2 cursor-pointer items-center">
+          <div className="size-[40px] bg-white rounded-full flex justify-center items-center">
+            <img src={bagLogo} alt="cart" />
+          </div>
           <span className="text-[#2D3B36] mr-1.5 text-[20px] leading-[100%]">
             Cart ({cartCount})
           </span>
         </div>
-        <img src={heart} alt="likes" className="cursor-pointer" />
-        <img src={profile} alt="profile" className="cursor-pointer" />
+        <div className="size-[40px] bg-white cursor-pointer rounded-full flex justify-center items-center">
+          <img src={heart} alt="likes" />
+        </div>
+        <div className="size-[40px] bg-white cursor-pointer rounded-full flex justify-center items-center">
+          <img src={profile} alt="profile" />
+        </div>
       </div>
     </div>
   );
