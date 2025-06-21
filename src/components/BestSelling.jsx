@@ -105,18 +105,21 @@ const BestSelling = ({ onAddToCart }) => {
   const visibleCards = getVisibleCards();
 
   return (
-    <div className="my-[15%]" ref={sectionRef}>
-      <div className="flex justify-between items-center" ref={textRef}>
+    <div className="my-[15%] w-[90vw] m-auto lg:w-full" ref={sectionRef}>
+      <div
+        className="flex flex-col lg:flex-row justify-between items-center"
+        ref={textRef}
+      >
         <div className="flex justify-around border border-[#2D3B36] rounded-[100px] p-4 w-[290px] h-[60px]">
           <div className="w-[20px] h-[20px] bg-[#2D3B36] rounded-full" />
           <span className="text-[20px] leading-[100%]">
             Best Selling Products
           </span>
         </div>
-        <span className="text-[60px]">
+        <span className="text-[3vw]">
           Skincare That Brings Out <br /> Your Natural Radiance
         </span>
-        <div className="flex gap-10">
+        <div className="gap-10 hidden lg:flex">
           {/* Left Button */}
           <button
             className={`
@@ -163,6 +166,46 @@ const BestSelling = ({ onAddToCart }) => {
         onAddToCart={onAddToCart}
         cardRefs={cardRefs}
       />
+      <div className="flex gap-10 justify-center mt-[4rem] lg:hidden">
+        {/* Left Button */}
+        <button
+          className={`
+              w-[80px] h-[80px] rounded-full border border-[#2D3B36]
+              flex items-center justify-center
+              transition-transform duration-150
+              ${leftPressed ? "scale-90 bg-[#e6eae2]" : ""}
+              active:scale-90
+            `}
+          onClick={handleLeft}
+          onMouseDown={() => handlePress(setLeftPressed)}
+          onMouseUp={() => setLeftPressed(false)}
+          onMouseLeave={() => setLeftPressed(false)}
+          onTouchStart={() => handlePress(setLeftPressed)}
+          onTouchEnd={() => setLeftPressed(false)}
+          aria-label="Previous"
+        >
+          <img src={leftArrow} alt="Left" />
+        </button>
+        {/* Right Button */}
+        <button
+          className={`
+              w-[80px] h-[80px] rounded-full border border-[#2D3B36] bg-[#2D3B36]
+              flex items-center justify-center
+              transition-transform duration-150
+              ${rightPressed ? "scale-90 bg-[#1a211d]" : ""}
+              active:scale-90
+            `}
+          onClick={handleRight}
+          onMouseDown={() => handlePress(setRightPressed)}
+          onMouseUp={() => setRightPressed(false)}
+          onMouseLeave={() => setRightPressed(false)}
+          onTouchStart={() => handlePress(setRightPressed)}
+          onTouchEnd={() => setRightPressed(false)}
+          aria-label="Next"
+        >
+          <img src={rightArrow} alt="Right" />
+        </button>
+      </div>
     </div>
   );
 };

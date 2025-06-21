@@ -48,12 +48,12 @@ const Cards = ({ cards, onAddToCart, cardRefs }) => {
   };
 
   return (
-    <div className="flex justify-between w-full gap-8 mt-12 transition-all duration-500 ease-in-out">
+    <div className="flex justify-between w-full gap-8 mt-12 transition-all duration-500 ease-in-out overflow-hidden">
       {cards.map((card, idx) => (
         <div
           key={card.id}
-          ref={(el) => cardRefs && (cardRefs.current[idx] = el)} // <-- assign card container ref
-          className="bg-white rounded-3xl shadow-md w-[560px] h-[770px] p-6 flex flex-col items-center flex-wrap relative transition-transform duration-500 ease-in-out"
+          ref={(el) => cardRefs && (cardRefs.current[idx] = el)}
+          className="bg-white rounded-3xl shadow-md shrink-0 w-[80vw] md:w-[90vw] h-[770px] p-6 flex flex-col items-center flex-wrap relative transition-transform duration-500 ease-in-out"
           style={{
             backgroundImage: `url(${card.img})`,
             backgroundSize: "cover",

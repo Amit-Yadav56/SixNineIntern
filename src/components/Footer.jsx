@@ -3,10 +3,10 @@ import { skincare } from "../assets";
 
 const Footer = () => {
   return (
-    <div className="relative left-[-6%] w-[112%] bg-[#2D3B36] text-[#E7E8E0]">
+    <div className="relative left-0 lg:left-[-6%] w-[100vw] lg:w-[112%] bg-[#2D3B36] text-[#E7E8E0]">
       <div className="flex flex-col lg:flex-row justify-between w-[90%] m-auto">
         <div className="flex flex-col justify-between w-[90%] m-auto pt-[8%]">
-          <span className="text-[60px] leading-[100%] tracking-[-2%]">
+          <span className="text-[34px] sm:text-[50px] lg:text-[60px] leading-[100%] tracking-[-2%]">
             Join The Skincare <br />
             Community Now.
           </span>
@@ -25,11 +25,11 @@ const Footer = () => {
 
         <div className="flex flex-col justify-between w-[90%] m-auto pt-[8%] ">
           <div className="text-[60px] leading-[100%] tracking-[-2%]">
-            <span className="text-[30px]">
+            <span className="text-[14px] sm:text-[20px] lg:text-[30px]">
               Get in Touch
               <br />
             </span>
-            <span className="cursor-pointer hover:text-black">
+            <span className="cursor-pointer hover:text-black text-[34px] sm:text-[50px] lg:text-[60px]">
               contact.skincare.com
             </span>
           </div>

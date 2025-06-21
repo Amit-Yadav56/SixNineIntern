@@ -70,10 +70,10 @@ const About = () => {
     ));
 
   return (
-    <div className="flex flex-col items-center justify-center mt-[5%]">
+    <div className="flex flex-col items-center justify-center mt-[5%] w-[90%] m-auto sm:w-full">
       <h1
         ref={paraRef}
-        className="w-[90vw] font-normal text-[53px] leading-[78px] tracking-[-0.035em] text-[#2D3B364D]"
+        className="w-[90vw] font-normal text-[4.7vw] leading-[78px] tracking-[-0.035em] text-[#2D3B364D]"
         style={{ transition: "color 0.3s" }}
       >
         {renderAnimatedParagraph()}
@@ -89,7 +89,7 @@ const About = () => {
             <span className="text-[20px] leading-[100%]">Why Our Products</span>
           </div>
           <div className="flex flex-col gap-10">
-            <span className="text-[60px]">
+            <span className="text-[3.5vw]">
               YOUR SKIN DESERVES THE BEST CARE.
             </span>
             <span className="text-[18px] leading-[24px]">
@@ -150,10 +150,10 @@ const About = () => {
           </div>
         </div>
         {/* Image section */}
-        <div className="flex flex-col">
+        <div className="flex flex-col w-screen ml-[-5.7%] md:w-[90vw] md:ml-0 lg:w-full items-center">
           <div className="relative">
             <img className="lg:w-[42vw] rounded-4xl" src={img2} alt="" />
-            <div className="absolute bottom-[10%] w-[400px] left-1/4 bg-[#EFF5E1] h-[100px] rounded-[200px] flex gap-[5%] justify-around items-center">
+            <div className="absolute bottom-[10%] w-full md:w-[400px] md:left-1/4 bg-[#EFF5E1] h-[100px] rounded-[200px] flex gap-[5%] justify-around items-center">
               <div className="size-[88px] border border-[#2D3B36] rounded-full flex items-center justify-center border-dashed">
                 <div className="bg-[#2D3B36] rounded-full size-[80px] flex items-center justify-center">
                   <img className="w-[50px] h-[50px]" src={lock} alt="" />
@@ -164,7 +164,7 @@ const About = () => {
               </span>
             </div>
           </div>
-          <div className="flex justify-between mt-3">
+          <div className="flex justify-between mt-3 w-full lg:w-[64%]">
             <span className="text-[20px]">Since 2001</span>
             <span className="text-[20px]">LEARN MORE</span>
           </div>

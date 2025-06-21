@@ -2,7 +2,7 @@ import React from "react";
 import { bagLogo, heart, profile } from "../assets";
 const Header = ({ cartCount }) => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center w-[100vw] lg:w-full">
       {/* Logo */}
       <p className="font-extrabold text-[30px] leading-[100%] text-[#2D3B36] cursor-pointer">
         SKINCARE
